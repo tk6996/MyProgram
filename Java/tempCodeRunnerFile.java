@@ -1,0 +1,10 @@
+MyStringBuilder1 B = new MyStringBuilder1("Strat Up Timer Out");
+        MyStringBuilder1 C = A.append(B);
+        MyStringBuilder1 D = A.append(1);
+        System.out.println(C.length());
+        System.out.println(C.toString());
+        System.out.println(B.charAt(4));
+        B = B.toLowerCase();
+        System.out.println(B.toString());
+        A = A.substring(0, 2);
+        System.out.println(A.toString());

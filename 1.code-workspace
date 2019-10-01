@@ -1,0 +1,28 @@
+{
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"stdio.h": "c",
+			"cmath": "c",
+			"xlocale": "c",
+			"ostream": "cpp",
+			"cstdlib": "cpp",
+			"limits": "cpp",
+			"string.h": "c",
+			"initializer_list": "cpp",
+			"type_traits": "cpp",
+			"xstring": "cpp",
+			"xutility": "cpp",
+			"windows.h": "c",
+			"stdlib.h": "c",
+			"conio.h": "c",
+			"memory": "c",
+			"time.h": "c",
+			"ios": "c",
+			"iosfwd": "c",
+			"pthread.h": "c",
+			"_ptw32.h": "c",
+			"cstddef": "cpp"
+		}
+	}
+}

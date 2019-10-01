@@ -1,0 +1,38 @@
+Name Steve 
+Address San Francisco
+Phone number 082-456-9714
+Email Address steve@kmitl.ac.th
+
+Name Watcharin 
+Address Thailand
+Phone number 081-429-5276
+Email Address 61010960@kmitl.ac.th
+Status freshman
+
+Name Siri 
+Address New York
+Phone number 081-108-7951
+Email Address siri@kmitl.ac.th
+Office KMITL
+Salary 20000
+Date hired Mon Apr 01 23:35:39 ICT 2019
+
+Name Somsak 
+Address Thailand
+Phone number 027-392-4002
+Email Address kwsomsak@kmitl.ac.th
+Office KMITL
+Salary 60000
+Date hired Mon Apr 01 23:35:39 ICT 2019
+Office hour 9:00
+Rank assistant professor
+
+Name Primo 
+Address Italy
+Phone number 097-641-2580
+Email Address primo@kmitl.ac.th
+Office KMITL
+Salary 30000
+Date hired Mon Apr 01 23:35:39 ICT 2019
+Title Hello
+
