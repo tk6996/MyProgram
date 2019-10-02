@@ -17,7 +17,8 @@ def infixTopostfixCalculation(infix : str) :
             else :
                 stackOfOperator.append(op)
     postfix += ''.join(stackOfOperator[::-1])
-    for v in variable:
+    
+    for v in sorted(variable):
         varvalue.update({v : int(input('[ %s ] = ' %(v)))})
     return postfixCalculation(postfix,varvalue)
 def postfixCalculation(postfix : str, memory_var : dict) :
