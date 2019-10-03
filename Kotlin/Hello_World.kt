@@ -1,34 +1,37 @@
-fun main(args : Array<String>) {
-    var list = ArrayList<Int>()
-    list.add(1)
-    var stack = Stack<Int>()
-    for(i in 0..10)
-        stack.push(i)
-    while(stack.size > 0)
-    {
-        println(stack.pop().toString())
+import javax.swing.*
+fun JFrame.menuBar(init: JMenuBar.() -> Unit) {
+    val menuBar = JMenuBar()
+    menuBar.init()
+    setJMenuBar(menuBar)
+}
+fun JMenuBar.menu(caption: String, init: JMenu.() -> Unit) {
+    val menu = JMenu(caption)
+    menu.init()
+    add(menu)
+}
+fun JMenu.menuItem(caption: String, init: JMenuItem.() -> Unit) {
+    val menuItem = JMenuItem(caption)
+    menuItem.init()
+    add(menuItem)
+}
+//These functions can then be used to build a tree structure of objects in an easy way:
+class MyFrame : JFrame() {
+    init {
+        menuBar {
+            menu("Menu1") {
+                menuItem("Item1") {
+            // Initialize MenuItem with some Action
+            }
+                menuItem("Item2") {}
+            }
+            menu("Menu2") {
+                menuItem("Item3") {}
+                menuItem("Item4") {}
+            }
+        }
     }
 }
-class Node<T>(data : T,next : Node<T>?)
+fun main(args : Array<String>)
 {
-    var data : T = data
-    var next : Node<T>? = next
-}
-
-class Stack<T>
-{
-    var head : Node<T>? = null
-    var size = 0
-    fun push(data : T){
-        size++
-        head = Node<T>(data,head)
-    }
-    fun pop(): T? {
-        val data : T? = head?.data 
-        if(head != null)
-            size--
-        head = head?.next
-        return data
-    }
-
+    MyFrame()
 }
