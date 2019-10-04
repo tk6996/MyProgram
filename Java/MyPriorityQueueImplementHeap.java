@@ -39,7 +39,12 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
             return ((this.left != null) ? this.left.getSize() : 0) + 1
                     + ((this.right != null) ? this.right.getSize() : 0);
         }
-
+        public int getMinHeight(){
+            if (this.left == null || this.right == null)
+                return 0;
+            else
+                return this.right.getMinHeight() < this.left.getMinHeight() ? this.right.getMinHeight() + 1 : this.left.getMinHeight() + 1 ;
+        }
     }
 
     private Comparator<? super T> comparator;
@@ -60,8 +65,8 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
     }
 
     private boolean addheapify(Node parent, T data) {
-        if (parent.getSize() >= 3) {
-            if (parent.getLeft().getSize() > parent.getRight().getSize()) {
+        if (parent.getMinHeight() > 0) {
+            if (parent.getLeft().getMinHeight() > parent.getRight().getMinHeight()) {
                 if (addheapify(parent.getRight(), data)) {
                     boolean c = comparator.compare(parent.getData(), parent.getRight().getData()) < 0;
                     if (c) {
@@ -182,8 +187,8 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
         if (parent == null)
             return null;
         T data;
-        while (parent.getSize() > 3) {
-            if (parent.getLeft().getSize() > parent.getRight().getSize())
+        while (parent.getMinHeight() > 1) {
+            if (parent.getLeft().getMinHeight() > parent.getRight().getMinHeight())
                 parent = parent.getLeft();
             else
                 parent = parent.getRight();
@@ -259,7 +264,9 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
         for (int i = 0; i < 40; i++) {
             p.add(i);
         }
-        System.out.println(p.contains(39));
-
+        System.out.println(p);
+        for (int i = 0; i < 40; i++) {
+            System.out.println(p.poll());
+        }
     }
 }
