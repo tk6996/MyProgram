@@ -39,7 +39,16 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
             return ((this.left != null) ? this.left.getSize() : 0) + 1
                     + ((this.right != null) ? this.right.getSize() : 0);
         }
-
+        public int getMinHeight(){
+            if(this.left == null || this.right == null)
+                return 1;
+            else
+            {
+                int leftHeight = this.left.getMinHeight();
+                int rightHeight = this.right.getMinHeight();
+                return rightHeight < leftHeight ? rightHeight + 1 : leftHeight + 1;
+            }
+        }
     }
 
     private Comparator<? super T> comparator;
@@ -60,8 +69,8 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
     }
 
     private boolean addheapify(Node parent, T data) {
-        if (parent.getSize() >= 3) {
-            if (parent.getLeft().getSize() > parent.getRight().getSize()) {
+        if (parent.getMinHeight() > 1) {
+            if (parent.getLeft().getMinHeight() > parent.getRight().getMinHeight()) {
                 if (addheapify(parent.getRight(), data)) {
                     boolean c = comparator.compare(parent.getData(), parent.getRight().getData()) < 0;
                     if (c) {
@@ -222,7 +231,7 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
 
     @Override
     public int getSize() {
-        return root.getSize();
+        return (root != null ) ? root.getSize() : 0;
     }
 
     @Override
@@ -251,7 +260,6 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
         }
         return sBuilder.toString();
     }
-
     public static void main(String[] args) {
         MyPriorityQueue<Integer> p = new MyPriorityQueueImplementHeap<Integer>((Integer data1, Integer data2) -> {
             return data2.compareTo(data1);
@@ -259,7 +267,19 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
         for (int i = 0; i < 40; i++) {
             p.add(i);
         }
-        System.out.println(p.contains(39));
+        System.out.println(p);
+        for (int i = 0; i < 20; i++) {
+            System.out.print(p.poll()+" ");
+            System.out.println(p.getSize());
 
+        }
+        for (int i = 0; i < 40; i++) {
+            p.add(i);
+        }
+        System.out.println(p);     
+        while (int i = 0; i < 20; i++) {
+            System.out.print(p.poll()+" ");
+            System.out.println(p.getSize());
+        }   
     }
 }

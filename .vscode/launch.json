@@ -24,7 +24,9 @@
             "mainClass": "${file}",
             "console": "externalTerminal",
             "projectName": "",
-            "args": []
+            "classPaths": ["${fileDirname}"],
+            "args": [],
+            "preLaunchTask": "javac"
         },
         {
             "type": "node",

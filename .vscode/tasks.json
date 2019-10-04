@@ -50,6 +50,21 @@
                 "isDefault": true
             },
             "options": {"cwd": "${fileDirname}"}
+        },
+        {
+            "label": "javac",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-cp",
+                "${fileDirname}",
+                "-g",
+                "${file}",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 
