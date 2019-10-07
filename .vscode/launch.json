@@ -5,19 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(Windows) Launch C++",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "symbolSearchPath": "${fileDirname}\\${fileBasenameNoExtension}.pdb",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "preLaunchTask": "cl"
-        },
-        {
             "type": "java",
             "name": "Java Debug (Launch) - Current File",
             "request": "launch",

@@ -37,21 +37,6 @@
             }
         },
         {
-            "label": "cl",
-            "type": "shell",
-            "command": "call \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && cl",
-            "args": [
-                "-std:c++latest",
-                "-Zi",
-                "${file}"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "options": {"cwd": "${fileDirname}"}
-        },
-        {
             "label": "javac",
             "type": "shell",
             "command": "javac",
