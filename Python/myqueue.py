@@ -30,14 +30,14 @@ class Deque(Queue):
     def getRear(self):
         return self.items[-1]
 
-d = Deque([i for i in range(10)])
-d.deQueue()
-print(d.items)
-d.deQueueRear()
-print(d.items)
-d.enQueue(777)
-print(d.items)
-d.enQueueFront(88)
-print(d.items)
+# d = Deque([i for i in range(10)])
+# d.deQueue()
+# print(d.items)
+# d.deQueueRear()
+# print(d.items)
+# d.enQueue(777)
+# print(d.items)
+# d.enQueueFront(88)
+# print(d.items)
 
 
