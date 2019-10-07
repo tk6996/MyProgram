@@ -107,43 +107,49 @@ class List():
         else:
             return None
 
+
 class Queue_Linked_List():
-    def __init__(self,list_var : List = None ):
-        if list_var : 
+    def __init__(self, list_var: List = None):
+        if list_var:
             front = list_var.head
             tail = front
-            while tail.next :
+            while tail.next:
                 tail = tail.getNext()
-            tail.setNext(front) 
+            tail.setNext(front)
             self.tail = tail
-        else :
+        else:
             self.tail = None
+
     def enQueue(self, i):
-        if self.tail :
-            front =  self.tail.getNext()
-            self.tail.setNext(Node(i,front))
-            self.tail = self.tail.getNext() 
-        else :
+        if self.tail:
+            front = self.tail.getNext()
+            self.tail.setNext(Node(i, front))
+            self.tail = self.tail.getNext()
+        else:
             self.tail = Node(i)
-            self.tail.setNext(self.tail) 
+            self.tail.setNext(self.tail)
+
     def deQueue(self):
-        if self.tail is self.tail.next :
+        if self.tail is self.tail.next:
             value = self.tail.getData()
             self.tail = None
             return value
-        else :
+        else:
             value = self.tail.getNext().getData()
             self.tail.setNext(self.tail.getNext().getNext())
             return value
+
     def isEmpty(self):
         return not self.tail
+
     def size(self):
         pointer = self.tail
         size = 1
-        while not (pointer.getNext() is self.tail) :
+        while not (pointer.getNext() is self.tail):
             size += 1
             pointer = pointer.getNext()
         return size
+
 
 q = Queue_Linked_List()
 for i in range(10):
