@@ -8,13 +8,22 @@
             "type": "java",
             "name": "Java Debug (Launch) - Current File",
             "request": "launch",
-            "mainClass": "${file}",
             "console": "externalTerminal",
-            "projectName": "",
-            "classPaths": ["${fileDirname}"],
-            "args": [],
-            "preLaunchTask": "javac"
+            "mainClass": "${file}"
         },
+        // {
+        //     "type": "java",
+        //     "name": "Java Debug (Launch) - Current File",
+        //     "request": "launch",
+        //     "mainClass": "${file}",
+        //     "console": "externalTerminal",
+        //     "projectName": "",
+        //     "classPaths": [
+        //         "${fileDirname}"
+        //     ],
+        //     "args": [],
+        //     "preLaunchTask": "javac"
+        // },
         {
             "type": "node",
             "request": "launch",

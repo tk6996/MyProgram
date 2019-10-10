@@ -41,7 +41,7 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
         }
         public int getMinHeight(){
             if(this.left == null || this.right == null)
-                return 1;
+                return 0;
             else
             {
                 int leftHeight = this.left.getMinHeight();
@@ -69,7 +69,7 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
     }
 
     private boolean addheapify(Node parent, T data) {
-        if (parent.getMinHeight() > 1) {
+        if (parent.getMinHeight() > 0) {
             if (parent.getLeft().getMinHeight() > parent.getRight().getMinHeight()) {
                 if (addheapify(parent.getRight(), data)) {
                     boolean c = comparator.compare(parent.getData(), parent.getRight().getData()) < 0;
@@ -277,7 +277,7 @@ public class MyPriorityQueueImplementHeap<T> implements MyPriorityQueue<T> {
             p.add(i);
         }
         System.out.println(p);     
-        while (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.print(p.poll()+" ");
             System.out.println(p.getSize());
         }   
