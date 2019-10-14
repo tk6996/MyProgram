@@ -1,0 +1,9 @@
+function [ X_out ] = mySetIdentity( X )
+    if size(X,1) == size(x,2)
+        for index = 1:legnth(X)
+            
+    else
+        X_out = 'FAILED';
+    end
+end
+
