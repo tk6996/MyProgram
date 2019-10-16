@@ -54,6 +54,26 @@ public class BinarySearchTree<T> {
         public int getSize() {
             return ((this.left != null) ? left.getSize() : 0) + 1 + ((this.right != null) ? right.getSize() : 0);
         }
+
+        public TreeNode rotateLeft() {
+            TreeNode temp = right;
+            if (temp != null) {
+                this.setRight(this.getRight().getLeft());
+                temp.setLeft(this);
+                return temp;
+            } else
+                return this;
+        }
+
+        public TreeNode rotateRight() {
+            TreeNode temp = left;
+            if (temp != null) {
+                this.setLeft(this.getLeft().getRight());
+                temp.setRight(this);
+                return temp;
+            } else
+                return this;
+        }
     }
 
     protected TreeNode root;
@@ -92,12 +112,12 @@ public class BinarySearchTree<T> {
         return false;
     }
 
-    protected TreeNode deleteNode(TreeNode root, T data) {
+    protected TreeNode removeNode(TreeNode root, T data) {
         if (root != null) {
             if (comparator.compare(data, root.getData()) < 0)
-                root.setLeft(deleteNode(root.getLeft(), data));
+                root.setLeft(removeNode(root.getLeft(), data));
             else if (comparator.compare(data, root.getData()) > 0)
-                root.setRight(deleteNode(root.getRight(), data));
+                root.setRight(removeNode(root.getRight(), data));
             else {
                 if (root.getLeft() != null && root.getRight() != null) {
                     if (root.getLeft().getHeight() > root.getRight().getHeight()) {
@@ -105,13 +125,13 @@ public class BinarySearchTree<T> {
                         while (temp.getRight() != null)
                             temp = temp.getRight();
                         root.setData(temp.getData());
-                        root.setLeft(deleteNode(root.getLeft(), root.getData()));
+                        root.setLeft(removeNode(root.getLeft(), root.getData()));
                     } else {
                         TreeNode temp = root.getRight();
                         while (temp.getLeft() != null)
                             temp = temp.getLeft();
                         root.setData(temp.getData());
-                        root.setRight(deleteNode(root.getRight(), root.getData()));
+                        root.setRight(removeNode(root.getRight(), root.getData()));
                     }
                 } else if (root.getLeft() != null)
                     root = root.getLeft();
@@ -122,9 +142,9 @@ public class BinarySearchTree<T> {
         return root;
     }
 
-    public boolean delete(T data) {
+    public boolean remove(T data) {
         if (contain(data)) {
-            this.root = deleteNode(this.root, data);
+            this.root = removeNode(this.root, data);
             return true;
         } else
             return false;
@@ -193,22 +213,12 @@ public class BinarySearchTree<T> {
         return pos;
     }
 
-    public void rotateLeft() {
-        if (this.root.getRight() != null) {
-            TreeNode temp = this.root.getRight();
-            this.root.setRight(this.root.getRight().getLeft());
-            temp.setLeft(this.root);
-            this.root = temp;
-        }
+    public void rotateLeftChild() {
+        this.root = this.root.rotateRight();
     }
 
-    public void rotateRight() {
-        if (this.root.getLeft() != null) {
-            TreeNode temp = this.root.getLeft();
-            this.root.setLeft(this.root.getLeft().getRight());
-            temp.setRight(this.root);
-            this.root = temp;
-        }
+    public void rotateRightChild() {
+        this.root = this.root.rotateLeft();
     }
 
     @Override
@@ -255,10 +265,10 @@ public class BinarySearchTree<T> {
         System.out.println(java.util.Arrays.toString(t.postOrder()));
         System.out.println(java.util.Arrays.toString(t.levelOrder()));
         System.out.println(t);
-        t.rotateRight();
+        t.rotateRightChild();
         System.out.println(t);
-        t.rotateRight();
-        System.out.println(t);   
-             
+        t.rotateLeftChild();
+        System.out.println(t);
+
     }
 }
