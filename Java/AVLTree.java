@@ -26,12 +26,16 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         public TreeNode rotateLeft() {
             AVLTreeNode root = (AVLTreeNode)super.rotateLeft();
             root.setHeight();
+            if(root.getLeft() != null)
+                ((AVLTreeNode)root.getLeft()).setHeight();
             return root;
         }
         @Override
         public TreeNode rotateRight() {
             AVLTreeNode root = (AVLTreeNode)super.rotateRight();
             root.setHeight();
+            if(root.getRight() != null)
+                ((AVLTreeNode)root.getRight()).setHeight();
             return root;
         }
     }
@@ -84,7 +88,7 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         });
         java.util.Random rd = new java.util.Random(174);
         long st = System.currentTimeMillis();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             int r = rd.nextInt();
            // System.out.println(r);
             t.add(r);
