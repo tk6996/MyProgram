@@ -57,8 +57,8 @@ public class AVLTree<T> extends BinarySearchTree<T> {
                     root.setRight(root.getRight().rotateRight());
                 root = root.rotateLeft();
             }
+            ((AVLTreeNode)root).setHeight();
         }
-        ((AVLTreeNode)root).setHeight();
         return root;
     }
 
@@ -88,11 +88,12 @@ public class AVLTree<T> extends BinarySearchTree<T> {
             System.out.println(r);
             t.add(r);
         }
+        t.remove(62);
+        t.remove(49);
         System.out.println(java.util.Arrays.toString(t.inOrder()));
         System.out.println(java.util.Arrays.toString(t.preOrder()));
         System.out.println(java.util.Arrays.toString(t.postOrder()));
         System.out.println(java.util.Arrays.toString(t.levelOrder()));
         System.out.println(t);
-
     }
 }
