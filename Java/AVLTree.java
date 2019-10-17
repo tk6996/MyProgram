@@ -83,17 +83,12 @@ public class AVLTree<T> extends BinarySearchTree<T> {
             return Integer.compare(data1, data2);
         });
         java.util.Random rd = new java.util.Random(174);
-        for (int i = 0; i < 30; i++) {
-            int r = rd.nextInt(100);
-            System.out.println(r);
+        long st = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+            int r = rd.nextInt();
+           // System.out.println(r);
             t.add(r);
         }
-        t.remove(62);
-        t.remove(49);
-        System.out.println(java.util.Arrays.toString(t.inOrder()));
-        System.out.println(java.util.Arrays.toString(t.preOrder()));
-        System.out.println(java.util.Arrays.toString(t.postOrder()));
-        System.out.println(java.util.Arrays.toString(t.levelOrder()));
-        System.out.println(t);
+        System.out.println("Timing = " + (System.currentTimeMillis() - st));
     }
 }
