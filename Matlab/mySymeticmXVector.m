@@ -8,4 +8,3 @@ function [ y_out ] = mySymeticmXVector( A , x , y)
     end
     y_out = y;
 end
-

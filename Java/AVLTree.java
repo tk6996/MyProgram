@@ -2,6 +2,39 @@ import java.util.Comparator;
 
 public class AVLTree<T> extends BinarySearchTree<T> {
 
+    private class AVLTreeNode extends TreeNode
+    {
+        private int height;
+		public AVLTreeNode(T data, BinarySearchTree<T>.TreeNode left, BinarySearchTree<T>.TreeNode right) {
+            super(data, left, right);
+            this.height = 1;
+		}
+
+		public AVLTreeNode(T data) {
+			super(data);
+		}
+        public void setHeight()
+        {
+            this.height = super.getHeight();
+        }
+        @Override
+        public int getHeight()
+        {
+            return this.height;
+        }
+        @Override
+        public TreeNode rotateLeft() {
+            AVLTreeNode root = (AVLTreeNode)super.rotateLeft();
+            root.setHeight();
+            return root;
+        }
+        @Override
+        public TreeNode rotateRight() {
+            AVLTreeNode root = (AVLTreeNode)super.rotateRight();
+            root.setHeight();
+            return root;
+        }
+    }
     protected int balanceValue(TreeNode root) {
         int leftHeight = root.getLeft() != null ? root.getLeft().getHeight() : -1;
         int rightHeight = root.getRight() != null ? root.getRight().getHeight() : -1;
@@ -25,11 +58,14 @@ public class AVLTree<T> extends BinarySearchTree<T> {
                 root = root.rotateLeft();
             }
         }
+        ((AVLTreeNode)root).setHeight();
         return root;
     }
 
     @Override
     protected TreeNode addNode(TreeNode root,T data) {
+        if(root == null)
+            return new AVLTreeNode(data);
         root = super.addNode(root,data);
         root = reBalance(root);
         return root;
