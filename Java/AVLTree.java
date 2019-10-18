@@ -2,47 +2,50 @@ import java.util.Comparator;
 
 public class AVLTree<T> extends BinarySearchTree<T> {
 
-    private class AVLTreeNode extends TreeNode
-    {
+    private class AVLTreeNode extends TreeNode {
         private int height;
-		public AVLTreeNode(T data, BinarySearchTree<T>.TreeNode left, BinarySearchTree<T>.TreeNode right) {
+
+        public AVLTreeNode(T data, BinarySearchTree<T>.TreeNode left, BinarySearchTree<T>.TreeNode right) {
             super(data, left, right);
             this.height = 1;
-		}
+        }
 
-		public AVLTreeNode(T data) {
-			super(data);
-		}
-        public void setHeight()
-        {
+        public AVLTreeNode(T data) {
+            super(data);
+        }
+
+        public void setHeight() {
             this.height = super.getHeight();
         }
+
         @Override
-        public int getHeight()
-        {
+        public int getHeight() {
             return this.height;
         }
+
         @Override
         public TreeNode rotateLeft() {
-            AVLTreeNode root = (AVLTreeNode)super.rotateLeft();
+            AVLTreeNode root = (AVLTreeNode) super.rotateLeft();
             root.setHeight();
-            if(root.getLeft() != null)
-                ((AVLTreeNode)root.getLeft()).setHeight();
+            if (root.getLeft() != null)
+                ((AVLTreeNode) root.getLeft()).setHeight();
             return root;
         }
+
         @Override
         public TreeNode rotateRight() {
-            AVLTreeNode root = (AVLTreeNode)super.rotateRight();
+            AVLTreeNode root = (AVLTreeNode) super.rotateRight();
             root.setHeight();
-            if(root.getRight() != null)
-                ((AVLTreeNode)root.getRight()).setHeight();
+            if (root.getRight() != null)
+                ((AVLTreeNode) root.getRight()).setHeight();
             return root;
         }
     }
+
     protected int balanceValue(TreeNode root) {
         int leftHeight = root.getLeft() != null ? root.getLeft().getHeight() : -1;
         int rightHeight = root.getRight() != null ? root.getRight().getHeight() : -1;
-        return  rightHeight - leftHeight;
+        return rightHeight - leftHeight;
     }
 
     public AVLTree(Comparator<? super T> comparator) {
@@ -61,23 +64,23 @@ public class AVLTree<T> extends BinarySearchTree<T> {
                     root.setRight(root.getRight().rotateRight());
                 root = root.rotateLeft();
             }
-            ((AVLTreeNode)root).setHeight();
+            ((AVLTreeNode) root).setHeight();
         }
         return root;
     }
 
     @Override
-    protected TreeNode addNode(TreeNode root,T data) {
-        if(root == null)
+    protected TreeNode addNode(TreeNode root, T data) {
+        if (root == null)
             return new AVLTreeNode(data);
-        root = super.addNode(root,data);
+        root = super.addNode(root, data);
         root = reBalance(root);
         return root;
     }
 
     @Override
-    protected TreeNode removeNode(TreeNode root,T data) {
-        root = super.removeNode(root,data);
+    protected TreeNode removeNode(TreeNode root, T data) {
+        root = super.removeNode(root, data);
         root = reBalance(root);
         return root;
     }
@@ -90,7 +93,7 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         long st = System.currentTimeMillis();
         for (int i = 0; i < 1000000; i++) {
             int r = rd.nextInt();
-           // System.out.println(r);
+            // System.out.println(r);
             t.add(r);
         }
         System.out.println("Timing = " + (System.currentTimeMillis() - st));
