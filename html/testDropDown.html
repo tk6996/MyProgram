@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <title>Dropdown</title>
+        <style>
+                .dropbth
+                {
+                        border: none;
+                        color: blueviolet;
+                        background: skyblue;
+                        padding: 15px;
+                        font-size : 20px;
+                        cursor: pointer;
+                        min-width: 150px;
+                }
+                .dropdown
+                {
+                        position: relative;
+                        display: inline-block;
+                        border: 1px black solid;
+                }
+                .dropcontent
+                {
+                        position: absolute;
+                        display: none;
+                        background-color: aquamarine;
+                        min-width: 150px;
+                   
+                }
+                .dropcontent a
+                {
+                        color : black;
+                        padding: 15px;
+                        display: block;
+                        border: 1px black solid;
+                        border-bottom-style: none;
+                }
+                .dropcontent a:last-child
+                {
+                        color : black;
+                        padding: 15px;
+                        display: block;
+                        border-bottom-style: solid;
+                }
+                .dropcontent a:hover
+                {
+                        background-color: brown;
+                }
+                .dropdown:hover .dropcontent{
+                        display: block;
+                }
+        </style>
+</head>
+
+<body>
+        <div class="dropdown">
+                <button class="dropbth">Link</button>
+                <div class="dropcontent">
+                        <a>Link1</a>
+                        <a>Link2</a>
+                        <a>Link3</a>
+                </div>
+
+        </div>
+</body>
+
+</html>
