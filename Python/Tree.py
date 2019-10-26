@@ -145,19 +145,19 @@ class BST():
             return root
         self.root = __deleteNode(self.root,data)    
 
-l = [int(e) for e in input("insert integers : ").split()]
-print(l)
-t = BST()
-for ele in l:
-    t.addI(ele)
-print("preOrder",end=" ")
-t.preOrder()
-print("inOrder",end=" ")
-t.inOrder()
-print("postOrder",end=" ")
-t.postOrder()
-t.printSideway()
-t.delete(15)
-t.delete(18)
-t.inOrder()
-t.printSideway()
+# l = [int(e) for e in input("insert integers : ").split()]
+# print(l)
+# t = BST()
+# for ele in l:
+#     t.addI(ele)
+# print("preOrder",end=" ")
+# t.preOrder()
+# print("inOrder",end=" ")
+# t.inOrder()
+# print("postOrder",end=" ")
+# t.postOrder()
+# t.printSideway()
+# t.delete(15)
+# t.delete(18)
+# t.inOrder()
+# t.printSideway()

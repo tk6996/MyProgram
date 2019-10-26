@@ -1,0 +1,46 @@
+header ,footer
+{
+    position: relative;
+    background-color:aquamarine;
+    height: 25%;    
+    text-align: center;
+    font-family: monospace;
+    font-size: 32px;
+    padding: 5px;
+}
+.nav
+{
+    position: relative;
+    background-color : gray;
+    height: 50px;
+}
+div.nav ul
+{
+    color : white;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    list-style-type: none;
+}
+div.nav li
+{
+    float: left;
+    border-right: solid 1px white;
+    height: 50px;
+    text-align:center;
+    width: 50px;
+    overflow: hidden;
+}
+div.nav li:hover
+{
+    background-color: red;
+}
+.collumMain
+{
+    width: 100%;
+    background-color: blueviolet;
+    font-size: 18;
+    color:white;
+    height: 50%; 
+}
