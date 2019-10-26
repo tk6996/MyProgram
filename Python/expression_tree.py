@@ -17,6 +17,41 @@ def postfixToExpressionTree(inputs: list):
     return stack.pop()
 
 
+priorityoperator = {'+': 1, '-': 1, '*': 2, '/': 2, '%': 2}
+
+
+def infixToExpressionTree(inputs: list):
+    operand = None
+    root = None
+    child = None
+    while inputs != []:
+        op = inputs.pop(0)
+        if op == ')':
+            return root
+        elif op in '+-*/%':
+            if root is None:
+                root = BinaryTree(op, operand)
+                child = root
+            else:
+                pre = None
+                cur = root
+                while cur.data in '+-*/%' and priorityoperator[op] > priorityoperator[cur.data]:
+                    pre = cur
+                    cur = cur.right
+                if pre is None:
+                    root = BinaryTree(op, root)
+                    child = root
+                else:
+                    pre.right = BinaryTree(op, cur)
+                    child = pre.right
+        else:
+            operand =  infixToExpressionTree(inputs) if op == '(' else BinaryTree(op)
+            if child is not None:
+                child.right = operand
+                child = None
+    return root
+
+
 def postOrderExpression(node):
     if node.data in '+-*/%':
         postOrderExpression(node.left)
@@ -49,14 +84,14 @@ def inOrderExpression(node):
 def ansExpression(node):
     if node.data in '+-*/%':
         operator = {'+': lambda a, b: a+b, '-': lambda a, b: a-b,
-                '*': lambda a, b: a*b, '/': lambda a, b: a/b, '%': lambda a, b: a % b}
-        return operator[node.data](ansExpression(node.left),ansExpression(node.right))
+                    '*': lambda a, b: a*b, '/': lambda a, b: a/b, '%': lambda a, b: a % b}
+        return operator[node.data](ansExpression(node.left), ansExpression(node.right))
 
     else:
         return float(node.data)
 
 
-n = postfixToExpressionTree(list(input().split(' ')))
+n = infixToExpressionTree(list(input().split(' ')))
 print("preorder : ")
 preOrderExpression(n)
 print()
