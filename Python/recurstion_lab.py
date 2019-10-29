@@ -1,6 +1,7 @@
 def fac(n):
     return n * fac(n-1) if n > 1 else 1
 
+
 def sum1ToN(n):
     return n + sum1ToN(n-1) if n > 1 else 1
 
@@ -126,4 +127,24 @@ def knapsack(K, B):
     return ans
 
 
-print(knapsack(20, [20, 10, 5, 5, 3, 2, 20, 10]))
+def knapsackV2(K, B):
+    ans = []
+    def pick(K, B, M, index):
+        nonlocal ans
+        if index >= len(B):
+            return
+        pick(K, B, M, index+1)
+        K -= B[index]
+        M.append(B[index]) 
+        if K > 0:
+            pick(K, B, M, index+1)
+        else:
+            if K == 0:  
+                ans.insert(0,M[:])
+        M.pop()
+    pick(K, B, [], 0)
+    return ans
+
+
+for i in knapsackV2(20, [20, 10, 5, 5, 3, 2, 20, 10]):
+    print(i)

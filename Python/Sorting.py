@@ -55,14 +55,19 @@ def mergeSort(arr):
 
 
 def quickSort(arr):
-    def __qsort(low, high):
+    def partition(low, high):
         nonlocal arr
         if low >= high:
             return
-        pivot = random.randint(low, high)
-        temp = arr[high]
-        arr[high] = arr[pivot]
-        arr[pivot] = temp
+        mid = (low + high)//2
+        if arr[mid] <= arr[low] <= arr[high] or arr[mid] >= arr[low] >= arr[high]:
+            temp = arr[low]
+            arr[low] = arr[high]
+            arr[high] = temp
+        elif arr[low] <= arr[mid] <= arr[high] or arr[low] >= arr[mid] >= arr[high]:
+            temp = arr[mid]
+            arr[mid] = arr[high]
+            arr[high] = temp
         i = low
         j = high - 1
         while not (i > j):
@@ -76,9 +81,9 @@ def quickSort(arr):
         temp = arr[high]
         arr[high] = arr[i]
         arr[i] = temp
-        __qsort(low, i-1)
-        __qsort(i+1, high)
-    __qsort(0, len(arr)-1)
+        partition(low, i-1)
+        partition(i+1, high)
+    partition(0, len(arr)-1)
     return arr
 
 
