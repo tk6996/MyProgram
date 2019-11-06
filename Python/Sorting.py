@@ -78,10 +78,12 @@ def quickSort(arr):
         if low >= high:
             return
         mid = (low + high)//2
-        if arr[mid] <= arr[low] <= arr[high] or arr[mid] >= arr[low] >= arr[high]:
-            (arr[low], arr[high]) = (arr[high], arr[low])
-        elif arr[low] <= arr[mid] <= arr[high] or arr[low] >= arr[mid] >= arr[high]:
-            (arr[mid], arr[high]) = (arr[high], arr[mid])
+        if arr[high] > arr[low] :
+            (arr[high] , arr[low]) = (arr[low] , arr[high])            
+        if arr[low] > arr[mid] :
+            (arr[low] , arr[mid] ) = (arr[mid] , arr[low])
+        if arr[high] > arr[low] :
+            (arr[high] , arr[low]) = (arr[low] , arr[high])
         i = low
         j = high - 1
         while not (i > j):
@@ -102,5 +104,5 @@ arr = [random.randint(0, 100) for _ in range(100)]
 # print(selectionSort(arr[:]))
 # print(insertionSort(arr[:]))
 # print(mergeSort(arr[:]))
-# print(quickSort(arr[:]))
-print(shellSort(arr[:]))
+print(quickSort(arr[:]))
+#print(shellSort(arr[:]))
