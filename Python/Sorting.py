@@ -27,7 +27,7 @@ def insertionSort(arr):
     for i in range(1, len(arr)):
         temp = arr[i]
         j = i
-        while j > 0:
+        while j >= 1:
             if arr[j-1] > temp:
                 arr[j] = arr[j-1]
             else:
@@ -44,7 +44,7 @@ def shellSort(arr):
             for i in range(k + gap, len(arr), gap):
                 temp = arr[i]
                 j = i
-                while j > gap - 1:
+                while j >= k + gap :
                     if arr[j-gap] > temp:
                         arr[j] = arr[j-gap]
                     else:
