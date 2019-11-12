@@ -156,6 +156,7 @@ class MinHeap:
     def __str__(self):
         if self.isEmpty():
             return ""
+        bufsize = 3
         string = ''
         queue = [self.root]
         height = self.root.getMaxHeight()
@@ -169,10 +170,10 @@ class MinHeap:
                 else:
                     queue2.append(None)
                     queue2.append(None)
-                string += ("".center(3))*(2**height - 1)
-                string += temp.data.__str__().center(3) if temp else "".center(3)
-                string += ("".center(3))*(2**height - 1)
-                string += "".center(3)
+                string += ("".center(bufsize))*(2**height - 1)
+                string += (temp.data.__str__() if temp else "").center(bufsize)
+                string += ("".center(bufsize))*(2**height - 1)
+                string += "".center(bufsize)
             string += '\n'
             height -= 1
             queue = queue2
@@ -185,7 +186,7 @@ def Heapsort(array: list):
     for itr in array:
         heap.add(itr)
     # heap.print90Degree()
-    # print(heap)
+    #print(heap)
     while not heap.isEmpty():
         newarray.append(heap.popMin())
     return newarray
