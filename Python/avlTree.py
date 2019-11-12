@@ -161,8 +161,34 @@ class AVLTree(BinarySearchTree):
     def _removenode(self, node, data):
         node = super()._removenode(node, data)
         return self.rebalance(node)
+    
+    def __str__(self):
+        if self.root is None:
+            return ""
+        string = ''
+        queue = [self.root]
+        height = self.root.height
+        while any(queue):
+            queue2 = []
+            while len(queue) > 0:
+                temp = queue.pop(0)
+                if  temp is not None :
+                    queue2.append(None if temp.left is None else temp.left)
+                    queue2.append(None if temp.right is None else temp.right)
+                else :
+                    queue2.append(None)
+                    queue2.append(None)
+                string += ("".center(3))*(2**height - 1)
+                string += temp.data.__str__().center(3) if temp else "".center(3)
+                string += ("".center(3))*(2**height - 1)
+                string += "".center(3)
+            string += '\n'
+            height -= 1
+            queue = queue2
+        return string
+
 t = AVLTree()
-a = [i for i in range(1000)]
-for _ in range(1000):
+a = [i for i in range(31)]
+for _ in range(31):
     t.add(a.pop(randint(0,len(a)-1)))
-t.print90Degree()
+print(t)

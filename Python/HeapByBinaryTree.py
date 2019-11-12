@@ -152,15 +152,31 @@ class MinHeap:
 
     def isEmpty(self):
         return self.root is None
-# h = MinHeap()
-# for i in range(10):
-#     h.add(random.randint(-10,10))
-# h.print90Degree()
-# print('-----------------')
-# for i in range(10):
-#     h.popMin()
-#     h.print90Degree()
-#     print('-----------------')
+
+    def __str__(self):
+        if self.isEmpty():
+            return ""
+        string = ''
+        queue = [self.root]
+        height = self.root.getMaxHeight()
+        while any(queue):
+            queue2 = []
+            while len(queue) > 0:
+                temp = queue.pop(0)
+                if temp is not None:
+                    queue2.append(None if temp.left is None else temp.left)
+                    queue2.append(None if temp.right is None else temp.right)
+                else:
+                    queue2.append(None)
+                    queue2.append(None)
+                string += ("".center(3))*(2**height - 1)
+                string += temp.data.__str__().center(3) if temp else "".center(3)
+                string += ("".center(3))*(2**height - 1)
+                string += "".center(3)
+            string += '\n'
+            height -= 1
+            queue = queue2
+        return string
 
 
 def Heapsort(array: list):
@@ -168,11 +184,12 @@ def Heapsort(array: list):
     newarray = []
     for itr in array:
         heap.add(itr)
-    #heap.print90Degree()
+    # heap.print90Degree()
+    # print(heap)
     while not heap.isEmpty():
         newarray.append(heap.popMin())
     return newarray
 
 
-arr = [ random.randint(0,10) for _ in range(10)]
+arr = [random.randint(-99, 999) for _ in range(13)]
 print(Heapsort(arr))
