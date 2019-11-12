@@ -59,7 +59,7 @@ def heapSort(heap):
         print("deleteMin",newlast,'FindPlaceFor',oldlast)
         print(heap.__str__().strip('[]').replace(',', ''))
         print90(heap)
-    return heap[::-1]
+    return list(reversed(heap))
 
 def createMinHeap(arr: list):
     heap = []
