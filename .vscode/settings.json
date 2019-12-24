@@ -129,6 +129,6 @@
     "python.linting.pylintEnabled": true,
     "java.format.settings.url": "eclipse-formatter.xml",
     "python.linting.enabled": true,
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 }

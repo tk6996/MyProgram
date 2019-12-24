@@ -1,0 +1,115 @@
+.headTitle {
+    font-size: 60px;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 30px auto;
+    width: 350px;
+    height: 80px;
+    padding: 10px;
+    background-image: linear-gradient(to right, deeppink, deepskyblue);
+}
+
+body {
+    background-image: url("https://i.pinimg.com/originals/74/b3/5f/74b35f299d3a4458a1ebd55558407bf8.jpg");
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+}
+
+table.num {
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    float: left;
+    margin-left: 10%;
+}
+
+table.num tr, table.num td {
+    border-style: groove;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    color: red;
+    background-color: black;
+}
+
+table.num td button#Random {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #cdcdcd, #b3b3b3);
+    color: white;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px black;
+}
+
+td.textAnswer {
+    font-size: 40px;
+    font-family: inherit;
+    text-shadow: 2px 2px rebeccapurple;
+}
+
+table.keypad {
+    border: 2px solid;
+    width: 260px;
+    height: 340px;
+    float: right;
+    margin-right: 10%;
+    padding: 10px;
+    background-color: steelblue;
+}
+
+table.keypad tr, table.keypad td {
+    border: 2px solid;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+table.keypad td:active {
+    transform: scale(0.85, 0.85);
+}
+
+table.keypad tr td#inputKeypad:active {
+    transform: none;
+}
+
+table.keypad tr td#Ans {
+    border-radius: 0%;
+    border: none;
+}
+
+table.keypad tr td#Ans button {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgba(45, 238, 45, 0.89), rgb(7, 65, 173));
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+.container-bar
+{
+    background-color: orange;
+    border-radius:  10px;
+    border-style: solid;
+    border-width: 5px;
+    position: relative;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.Score {
+    font-size: 40px;
+    color: white;
+    text-shadow: 3px 3px black;
+    line-height: 50px;
+}
+
+.Time {
+    font-size: 40px;
+    text-shadow: 3px 3px blue;
+    line-height: 50px;
+    color: crimson;
+}

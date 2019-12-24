@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QuickMath</title>
+    <link rel="stylesheet" type="text/css" href="QuickMath.css">
+    </link>
+    <script src="../Javascript/QuickMath.js">
+    </script>
+    <header class="headTitle">
+        Quick  Math 
+    </header>
+</head>
+
+<body>
+    <table class="num">
+        <tr>
+            <td id="n13">0</td>
+            <td id="n12">0</td>
+            <td id="n11">0</td>
+            <td id="n10">0</td>
+            <td id="op" rowspan="2">+</td>
+        </tr>
+        <tr>
+            <td id="n23">0</td>
+            <td id="n22">0</td>
+            <td id="n21">0</td>
+            <td id="n20">0</td>
+        </tr>
+        <tr>
+            <td id="Answer" colspan="4" class=textAnswer onmouseover="showAnswer();" onmouseout="hiddenAnswer();">Answer
+            </td>
+            <td rowspan="2">
+                <button id="Random" onclick="fillNumber();">Random</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="n33">0</td>
+            <td id="n32">0</td>
+            <td id="n31">0</td>
+            <td id="n30">0</td>
+        </tr>
+    </table>
+    <table class="keypad">
+        <tr>
+            <td id="inputKeypad" colspan="2" style="background-color: white; border-radius: 0%;">0000</td>
+            <td id="Ans"><button id="bthAns" onclick="answer();">Ans</button></td>
+        </tr>
+        <tr>
+            <td style="background-color: pink;" onclick="inputNumber(1);">1</td>
+            <td style="background-color: yellow;" onclick="inputNumber(2);">2</td>
+            <td style="background-color: fuchsia" onclick="inputNumber(3);">3</td style="background-color: deeppink">
+        </tr>
+        <tr>
+            <td style="background-color: aqua;" onclick="inputNumber(4);">4</td>
+            <td style="background-color: violet;" onclick="inputNumber(5);">5</td>
+            <td style="background-color: greenyellow;" onclick="inputNumber(6);">6</td>
+        </tr>
+        <tr>
+            <td style="background-color: tomato;" onclick="inputNumber(7);">7</td>
+            <td style="background-color: chocolate;" onclick="inputNumber(8);">8</td>
+            <td style="background-color: orange;" onclick="inputNumber(9);">9</td>
+        </tr>
+        <tr>
+            <td style="background-color: red;" onclick="inputNumber('-');">-</td>
+            <td style="background-color: skyblue;" onclick="inputNumber(0);">0</td>
+            <td style="background-color: green" onclick="document.getElementById('inputKeypad').innerHTML = '0000';">C
+            </td>
+        </tr>
+    </table>
+    <div class = "container-bar">
+        <div class="Score">
+            Score
+            <div id="scoreValue">
+                0000
+            </div>
+        </div>
+        <div class="Time">
+            Time
+            <div id="timeValue">
+                0
+            </div>
+        </div>
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Heart_left-highlight_jon_01.svg" alt="heart"
+                id="l1" width="50px" height="50px" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Heart_left-highlight_jon_01.svg" alt="heart"
+                id="l2" width="50px" height="50px" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Heart_left-highlight_jon_01.svg" alt="heart"
+                id="l3" width="50px" height="50px" />
+        </div>
+    </div>
+</body>

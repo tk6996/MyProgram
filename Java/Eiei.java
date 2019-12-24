@@ -1,23 +1,20 @@
+import java.io.*;
 
 public class Eiei {
     public static void main(String args[]) {
-        Integer A;
-        A.compareTo(anotherInteger)
+        String[][] table = {{"1","1","1"},{"1","1","1"},{"1","1","1"}};
+        try (FileWriter fw = new FileWriter(new File("C:/out/Temp.csv"))) {
+                for(var i : table)
+                {
+                    for(var j : i)
+                    {
+                        fw.append(j);
+                        fw.append(",");
+                    }
+                    fw.append("\n");
+                }
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
     }
-}
-
-class InnerEiei_1 {
-    public static void name() {
-
-    }
-}
-
-class InnerEiei extends InnerEiei_1 {
-    private int a;
-    private int b;
-    private int c;
-
-    public InnerEiei() {
-    }
-
 }
