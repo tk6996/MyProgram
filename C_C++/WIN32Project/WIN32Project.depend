@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1579746596 source:c:\users\administrator\desktop\program\c_c++\win32project\add.c
+
+1579763928 source:c:\users\administrator\desktop\program\c_c++\win32project\main.cpp
+	<tchar.h>
+	<windows.h>
+

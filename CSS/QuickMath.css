@@ -87,7 +87,7 @@ table.keypad tr td#Ans button {
     background-image: linear-gradient(to right, rgba(45, 238, 45, 0.89), rgb(7, 65, 173));
     font-size: 20px;
     color: white;
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px 2px black;
 }
 .container-bar
 {
@@ -98,6 +98,7 @@ table.keypad tr td#Ans button {
     position: relative;
     margin-left: 40%;
     margin-right: 40%;
+    box-shadow: -2px 0 3px yellow,2px 0 3px yellow,0 -2px 3px yellow,0 2px 3px yellow,3px 0 5px white,3px 0 5px white,0 -3px 5px white,0 3px 5px white;
 }
 
 .Score {
@@ -109,7 +110,7 @@ table.keypad tr td#Ans button {
 
 .Time {
     font-size: 40px;
-    text-shadow: 3px 3px blue;
+    text-shadow: 3px 3px 3px blue;
     line-height: 50px;
     color: crimson;
 }

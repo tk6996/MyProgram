@@ -1,69 +1,71 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-        <meta charset="utf-8">
-        <title>Dropdown</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Drop Down</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
         <style>
-                .dropbth
+                *
                 {
-                        border: none;
-                        color: blueviolet;
-                        background: skyblue;
-                        padding: 15px;
-                        font-size : 20px;
-                        cursor: pointer;
-                        min-width: 150px;
+                        font-family: 'Open Sans', sans-serif;
                 }
-                .dropdown
+                .lists
                 {
                         position: relative;
-                        display: inline-block;
-                        border: 1px black solid;
-                }
-                .dropcontent
-                {
-                        position: absolute;
-                        display: none;
-                        background-color: aquamarine;
-                        min-width: 150px;
-                   
-                }
-                .dropcontent a
-                {
-                        color : black;
-                        padding: 15px;
                         display: block;
-                        border: 1px black solid;
-                        border-bottom-style: none;
+                        width: 200px;
+                        height: 100px;
+                        text-align: center;
+                        font-size: 2em;
+                        margin: 0 auto;
+                        padding: 0;
                 }
-                .dropcontent a:last-child
+                .list
                 {
-                        color : black;
-                        padding: 15px;
-                        display: block;
-                        border-bottom-style: solid;
+                        padding: 10px;
+                        color: white;
+                        text-shadow: 1px 1px 3px #000000;
                 }
-                .dropcontent a:hover
+                .list.child.menu
                 {
-                        background-color: brown;
+                        border: 1.5px solid black;
+                        visibility: visible;
+                        cursor: initial;
+                        opacity: 1;
+                        background-color: #018db8;
                 }
-                .dropdown:hover .dropcontent{
-                        display: block;
+                .list.child
+                {
+                        list-style: none;
+                        border: 1.5px solid black;
+                        border-top: 0;
+                        visibility: hidden;
+                        opacity: 0;
+                        cursor: pointer;
+                        transition: visibility 0s,opacity 1s,transform 0.5s;
+                }
+                .lists:hover li.list.child 
+                {
+                        visibility: visible;
+                        opacity: 1;
+                }
+                .lists li.list.child:hover:not(.menu)
+                {
+                        transform: scale(1.25,1.25);
+                        border-top: 1.5px solid black;
+                        box-shadow: -2px 0 5px white,2px 0 5px white,0 -2px 5px white,0 2px 5px white;
                 }
         </style>
 </head>
-
 <body>
-        <div class="dropdown">
-                <button class="dropbth">Link</button>
-                <div class="dropcontent">
-                        <a>Link1</a>
-                        <a>Link2</a>
-                        <a>Link3</a>
-                </div>
-
-        </div>
+        <ul class="lists">
+                <li class="list child menu">Menu</li>
+                <li class="list child" style="background-color: #451abc;">First</li>
+                <li class="list child" style="background-color: #0d15c2;">Second</li>
+                <li class="list child" style="background-color: #119945;">Third</li>
+                <li class="list child" style="background-color: #ff3c3c;">Fourth</li>
+        </ul>
 </body>
-
 </html>

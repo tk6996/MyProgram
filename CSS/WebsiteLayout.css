@@ -1,0 +1,73 @@
+.header
+{
+    background-color: #cfcfcf;
+    text-align: center;
+    padding: 20px;
+}
+
+.nav-menu
+{
+    overflow: hidden;
+    background-color: brown;
+}
+
+.nav-menu a
+{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-menu a:hover
+{
+    background-color: rgb(121, 2, 2);
+    color: red;
+}
+
+.row
+{
+    background-color: lightblue;
+}
+
+.row:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col
+{
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.col.side
+{
+    width: 25%;
+}
+
+.col.middle
+{
+    width: 50%;
+}
+
+@media screen and (max-width: 600px)
+{
+    .col.side , .col.middle
+    {
+        width: 100%;
+    }
+}
+
+
+.footer
+{
+    background-color: #cfcfcf;
+    text-align: center;
+    padding: 20px;
+}

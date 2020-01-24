@@ -69,7 +69,6 @@ function fillNumber() {
     }
 }
 function showAnswer() {
-    ;
     let num1 = Number(document.getElementById("n13").innerHTML + document.getElementById("n12").innerHTML + document.getElementById("n11").innerHTML + document.getElementById("n10").innerHTML);
     let num2 = Number(document.getElementById("n23").innerHTML + document.getElementById("n22").innerHTML + document.getElementById("n21").innerHTML + document.getElementById("n20").innerHTML);
     let operator = document.getElementById("op").innerHTML;
@@ -161,4 +160,4 @@ document.addEventListener("keypress", (e) => {
     else if (e.key == "C" || e.key == "c")
         document.getElementById('inputKeypad').innerHTML = '0000';
 
-})
+});
