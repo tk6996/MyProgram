@@ -112,9 +112,6 @@
         "stdint.h": "c",
         "queue": "cpp",
         "bit": "cpp",
-        "34.C": "cpp",
-        "LAB4SEND.C": "cpp",
-        "32.C": "cpp"
     },
     "C_Cpp.intelliSenseEngineFallback": "Enabled",
     "C_Cpp.errorSquiggles": "Enabled",
