@@ -115,7 +115,7 @@
     },
     "C_Cpp.intelliSenseEngineFallback": "Enabled",
     "C_Cpp.errorSquiggles": "Enabled",
-    "python.pythonPath": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "D:\\Users\\Administrator\\Anaconda3\\python.exe",
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,

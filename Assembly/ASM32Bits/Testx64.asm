@@ -2,15 +2,15 @@
 
     section .data		; Data section, initialized variables
 msg:	db "Hello world", 0	; C string needs 0
-fmt:    db "%s", 10, 0          ; The printf format, "\n",'0'
+fmt:    db "%p", 10, 0          ; The printf format, "\n",'0'
 
     section .text           ; Code section.
 
     global main		; the standard gcc entry point
 main:				; the program label for the entry point
     push    rbp		; set up stack frame, must be alligned
-	mov	rdi,fmt
-	mov	rsi,msg
+	mov	rcx,fmt
+	mov	rdx,msg
 	mov	rax,0		; or can be  xor  rax,rax
     call    printf		; Call C function
 
